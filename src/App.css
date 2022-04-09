@@ -1,0 +1,333 @@
+.main {
+  margin: 50px auto;
+}
+
+.expenses-list-wrap {
+  background-color: white;
+  margin: 30px auto;
+  width: 30%;
+  transition: 0.3s;
+  border-radius: 10px 10px 0 0;
+}
+
+.expenses-list-wrap:hover {
+  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.229);
+}
+
+@media (max-width: 1300px) {
+
+  .expenses-list-wrap {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+h3 {
+  text-align: center;
+  margin: 0 0 30px 0;
+  font-weight: 700;
+  letter-spacing: 10px;
+  font-size: 30px;
+  padding: 20px;
+  color: #fff;
+  border-radius: 10px 10px 0 0;
+  background-color: #64acff;
+}
+
+/* CONVERTER */
+
+.add-expense {
+  margin: 30px;
+}
+
+.converter-row {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.exchange-rate-info {
+  display: flex;
+  align-items: center;
+}
+
+.exchange-rate-info-amount, .equals {
+  color: #63ACFF;
+  font-weight: 700;
+  transform: scaleY(0.9) scaleX(1);
+}
+
+.exchange-rate-info-amount {
+  margin: 0 10px;
+}
+
+.equals {
+  margin-left: 10px;;
+}
+
+/* OPTIONS STYLE */
+
+label {
+  position: relative;
+  display: inline-block;
+}
+
+label:after {
+  content: "";
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  margin-top: -3px;
+  z-index: 2;
+  border-style: solid;
+  border-width: 6.9px 4px 0 4px;
+  border-color: #aaa transparent transparent transparent;
+}
+
+select {
+  appearance: none;
+  padding: 0 30px 0 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  line-height: 36px;
+  height: 36px;
+  background: #fff;
+  color: #3590F8;
+  font-size: 15px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+/* INPUT FORM STYLE */
+
+.add-expense-form {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.add-expense-inputs {
+  margin-bottom: 20px;
+}
+
+.add-expense-form input {
+  background-color: rgba(132, 150, 230, 0.151);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 5px;
+  width: 100%;
+  outline: none;
+  border-width: 0;
+  font-size: 15px;
+  letter-spacing: 2px;
+  color: #3590f8;
+}
+
+.add-expense-form input::placeholder {
+  color: #3590F8;
+  font-size: 15px;
+  text-transform: uppercase;
+  transform: scaleY(0.9) scaleX(1);
+  letter-spacing: 2px;
+}
+
+.add-expense-form input:focus {
+  outline: none;
+  background-color: rgba(95, 210, 230, 0.336);
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.1);
+}
+
+.add-expense-form input:focus::placeholder {
+  color: transparent;
+}
+
+.add-expense-form input:focus:invalid {
+  border: 2px solid red;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* TABLE STYLE */
+
+.display-expenses-wrap {
+  margin: 0 30px;
+}
+
+table {
+  table-layout: auto;
+}
+
+.display-expenses-table-wrap {
+  background-color: #64acff;
+  border-radius: 10px;
+  margin: 0 auto;
+  padding: 5px;
+}
+
+.display-expenses-table {
+  border-collapse: collapse;
+  margin: 10px auto;
+  text-align: center;
+  width: 95%;
+}
+
+thead {
+  background-color: #64acff;
+  border-radius: 20px 20px 0 0;
+}
+
+th {
+  color: #fff;
+  padding: 5px 5px 15px 5px;
+  border: none;
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  transform: scaleY(0.9) scaleX(1);
+  text-transform: uppercase;
+}
+
+.expense-title {
+  text-align: left;
+  text-transform: uppercase;
+  color: #3590f8;
+  padding: 0;
+  margin: 0;
+  line-height: 1em;
+}
+
+tr {
+  transition: 0.3s;
+}
+
+tbody tr:hover {
+  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.197);
+  background-color: white;
+}
+
+tbody:hover {
+  background-color: #eceffb;
+}
+
+tbody {
+  padding: 10px;
+  background-color: white;
+  transition: 0.6s;
+}
+
+td {
+  padding: 10px 0;
+  border: 1px solid #8496e6;
+  transform: scaleY(0.8) scaleX(0.8);
+  letter-spacing: 2px;
+  font-weight: 500;
+  font-size: 20px;
+  color: rgb(0, 166, 255);
+  line-height: 40px;
+}
+
+/* BUTTONS */
+
+.add-expense-button,
+.delete-expenses-button,
+.swap-currencies {
+  background-color: #3590f8;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add-expense-button p,
+.delete-expenses-button p,
+.swap-currencies p {
+  margin: 10px;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 3px;
+  font-size: 15px;
+  font-weight: 700;
+  transform: scaleY(0.9) scaleX(1);
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+.add-expense-button:hover,
+.delete-expenses-button:hover,
+.swap-currencies:hover {
+  background-color: transparent;
+  color: #fff;
+}
+
+.add-expense-button:hover p,
+.delete-expenses-button:hover p,
+.swap-currencies:hover p {
+  background-color: transparent;
+  color: #3590F8;
+}
+
+.add-expense-button {
+  width: 36%;
+}
+
+.swap-currencies {
+  margin-left: 10px;
+  width: 100px;
+}
+
+.delete-expenses-button {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.delete-expenses-button:hover {
+  transform: scale(1.1);
+}
+
+.delete-expenses-button p {
+  margin: 4px auto;
+}
+
+/* TOTAL SUM STYLE */
+
+.total-sum-wrap {
+  margin: 0;
+  display: flex;
+}
+
+.total-sum-title, .total-sum {
+  font-size: 23px;
+  font-weight: 700;
+}
+
+.total-sum-title {
+  color: #3590f8;
+  text-align: left;
+  width: 15%;
+}
+
+.total-sum {
+  color: #1682fd;
+  text-align: right;
+  width: 85%;
+}
+
+/* OTHER */
+
+.length-error, .empty-table-text {
+  letter-spacing: 2px;
+  font-weight: 700;
+  padding: 0;
+  font-size: 17px;
+  width: 500px;
+  text-align: left;
+}
+
+.length-error {
+  color: #ff0000;
+}
+
+.empty-table-text {
+  color:#63ACFF;
+}
