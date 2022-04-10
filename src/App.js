@@ -206,7 +206,6 @@ function App() {
             convertedAmount={convertedFromAmount}
             onTitleChange={onTitleChange}
             lengthErrorMessage={lengthErrorMessage}
-            onEditFormSubmit={onEditFormSubmit}
           />
           <DisplayExpenses
             allExpenses={allExpenses}
