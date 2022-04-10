@@ -115,15 +115,9 @@ function App() {
   // Get ID and the data of the field to edit, fill out the inputs
   const onEditClick = (event, expense) => {
     event.preventDefault();
+
     setEditExpenseId(expense.id);
-
-    const formValues = {
-      title: expense.title,
-      amount: expense.amount,
-      convertedAmount: expense.convertedAmount,
-    };
-
-    setEditFormData(formValues);
+    setEditFormData(expense);
   };
 
   // Find the edited object, switch object's values to new ones
