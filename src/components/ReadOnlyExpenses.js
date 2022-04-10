@@ -1,14 +1,14 @@
 import React from "react";
-import editIcon from "./edit-icon.ico";
-import removeIcon from "./remove-icon.ico";
+import editIcon from "../images/edit-icon.ico";
+import removeIcon from "../images/remove-icon.ico";
 
 export default function ReadOnlyExpenses(props) {
   const { expense, onEditClick, onDeleteClick } = props;
   return (
     <tr key={expense.id}>
       <td className="expense-title">{expense.title}</td>
-      <td>{expense.amount}</td>
-      <td>{expense.convertedAmount}</td>
+      <td className="expense-amount">{expense.amount}</td>
+      <td className="expense-amount">{expense.convertedAmount}</td>
       <td className="table-buttons">
         <div className="action-buttons">
           <button

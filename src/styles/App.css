@@ -100,7 +100,7 @@ select {
   font-weight: 700;
 }
 
-/* INPUT FORM STYLE */
+/* INPUT FORMS STYLE */
 
 .add-expense-form {
   width: 100%;
@@ -119,10 +119,21 @@ select {
   width: 100%;
   outline: none;
   border-width: 0;
-  font-size: 15px;
   letter-spacing: 2px;
   color: #3590f8;
   text-transform: uppercase;
+}
+
+.add-expense-form input {
+  font-size: 15px;
+}
+
+.edit-input {
+  font-size: 20px;
+}
+
+.edit-input.amount{
+  text-align: center;
 }
 
 .add-expense-form input::placeholder {
@@ -184,18 +195,6 @@ th {
   text-transform: uppercase;
 }
 
-.expense-title, .edit-td {
-  text-align: left;
-  text-transform: uppercase;
-  color: #3590f8;
-  padding: 0;
-  margin: 0;
-  line-height: 1em;
-  white-space: pre-wrap;
-word-break:break-word;
-  width: 50%;
-}
-
 tr {
   transition: 0.3s;
   
@@ -225,6 +224,23 @@ td {
   font-weight: 500;
   font-size: 20px;
   color: rgb(0, 166, 255);
+}
+
+.expense-title, .edit-td {
+  text-align: left;
+  text-transform: uppercase;
+  color: #3590f8;
+  padding: 0;
+  margin: 0;
+  line-height: 1em;
+  white-space: pre-wrap;
+  word-break: break-word;
+  width: 50%;
+}
+
+.expense-amount {
+  word-break:break-all;
+  width: 25%;
 }
 
 /* BUTTONS */
@@ -263,7 +279,7 @@ td {
 .add-expense-button:hover p,
 .swap-currencies:hover p
 {
-  background-color: rgba(132, 150, 230, 0.151);
+  background-color: #fff;
   color: #3590F8;
 }
 

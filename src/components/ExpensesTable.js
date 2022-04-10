@@ -29,7 +29,7 @@ export default function ExpensesTable(props) {
           </thead>
           <tbody>
             {allExpenses.map((expense) => (
-              <>
+              <React.Fragment key={expense.id}>
                 {editExpenseId === expense.id ? (
                   <EditExpenses
                     expense={expense}
@@ -43,7 +43,7 @@ export default function ExpensesTable(props) {
                     onDeleteClick={onDeleteClick}
                   />
                 )}
-              </>
+              </React.Fragment>
             ))}
           </tbody>
         </table>
@@ -51,39 +51,3 @@ export default function ExpensesTable(props) {
     </div>
   );
 }
-
-//                 </tr>
-//         </tbody>
-//       </table>
-//     </form>
-//     <div className="display-expenses-table-wrap">
-//       <table className="display-expenses-table">
-//         <thead>
-//           <tr>
-//             <th>Title</th>
-//             <th>{fromCurrency}</th>
-//             <th>{toCurrency}</th>
-//             <th></th>
-//           </tr>
-//         </thead>
-//         <tbody>
-//           {allExpenses.map((expense, key) => (
-//             <tr key={key}>
-//               <td className="expense-title">{expense.title}</td>
-//               <td>{expense.amount}</td>
-//               <td>{expense.convertedAmount}</td>
-//               <td>
-//                 <button
-//                   className="delete-expenses-button"
-//                   onClick={() => onDeleteClick(expense.id)}
-//                 >
-//                   <p>X</p>
-//                 </button>
-//               </td>
-//             </tr>
-//           ))}
-//         </tbody>
-//       </table>
-//     </div>
-//   );
-// }

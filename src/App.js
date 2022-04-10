@@ -4,7 +4,7 @@ import AddExpense from "./components/AddExpense";
 import DisplayExpenses from "./components/DisplayExpenses";
 import expenses from "./components/sampleExpenses";
 import { nanoid } from "nanoid";
-import "./App.css";
+import "./styles/App.css";
 
 const BASE_URL = "https://v6.exchangerate-api.com/v6/8928f74d1372e6fe7e9cdc5d";
 
@@ -70,12 +70,15 @@ function App() {
 
     const newExpense = {
       amount: Number(amountRef.current.value).toFixed(2),
-      title: titleRef.current.value,
+      title: titleRef.current.value.trim().replace(/\s\s+/g, " "),
       convertedAmount: Number(amountRef.current.value * exchangeRate).toFixed(
         2
       ),
       id: nanoid(),
     };
+
+    titleRef.current.value = "";
+    amountRef.current.value = "";
 
     setAllExpenses([...allExpenses, newExpense]);
   };
@@ -89,7 +92,7 @@ function App() {
       }));
 
     setAllExpenses(convertedAmount);
-  }, [exchangeRate, allExpenses]);
+  }, [exchangeRate]);
 
   // Create an array of amounts, add them together to get a total
   React.useEffect(() => {
@@ -140,8 +143,9 @@ function App() {
 
     const editedExpense = {
       id: editExpenseId,
-      title: editFormData.title,
-      amount: editFormData.amount,
+      title: editFormData.title.trim().replace(/\s\s+/g, " "),
+      amount: Number(editFormData.amount).toFixed(2),
+      convertedAmount: Number(editFormData.amount * exchangeRate).toFixed(2),
     };
 
     const newExpenses = [...allExpenses];
@@ -172,10 +176,13 @@ function App() {
 
   // Validate title length and show error
   const onTitleChange = (event) => {
-    const minLength = event.target.value.length >= 5;
+    const value = event.target.value;
+    console.log(value.trim().length);
 
     setLengthErrorMessage(
-      minLength ? null : "Title should have at least 5 characters"
+      value.trim().length >= 5
+        ? null
+        : "Title should have at least 5 characters"
     );
   };
 
@@ -215,6 +222,7 @@ function App() {
             onEditFormSubmit={onEditFormSubmit}
             onCancelClick={onCancelClick}
             onDeleteClick={onDeleteClick}
+            lengthErrorMessage={lengthErrorMessage}
           />
         </div>
       </div>

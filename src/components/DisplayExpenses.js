@@ -13,7 +13,6 @@ export default function DisplayExpenses(props) {
     onEditClick,
     editExpenseId,
     onEditFormChange,
-    editFormData,
     onEditFormSubmit,
     onCancelClick,
     onDeleteClick,

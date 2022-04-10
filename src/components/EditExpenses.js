@@ -1,6 +1,6 @@
 import React from "react";
-import saveIcon from "./save-icon.ico";
-import cancelIcon from "./cancel-icon.ico";
+import saveIcon from "../images/save-icon.ico";
+import cancelIcon from "../images/cancel-icon.ico";
 
 export default function EditExpenses(props) {
   const { expense, onEditFormChange, onCancelClick } = props;
@@ -8,7 +8,7 @@ export default function EditExpenses(props) {
     <tr>
       <td className="edit-td">
         <input
-          className="edit-input"
+          className="edit-input title"
           type="text"
           required
           name="title"
@@ -19,7 +19,7 @@ export default function EditExpenses(props) {
       </td>
       <td className="edit-td">
         <input
-          className="edit-input"
+          className="edit-input amount"
           type="number"
           required
           name="amount"
