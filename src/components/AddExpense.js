@@ -18,7 +18,6 @@ export default function AddExpense(props) {
     handleSwapCurrencies,
     onLostFocus,
     lengthErrorMessage,
-    amountErrorMessage,
   } = props;
 
   return (
@@ -49,7 +48,6 @@ export default function AddExpense(props) {
         onAmountChange={onAmountChange}
         onLostFocus={onLostFocus}
         lengthErrorMessage={lengthErrorMessage}
-        amountErrorMessage={amountErrorMessage}
         fromCurrency={fromCurrency}
       />
     </div>

@@ -19,17 +19,16 @@ export default function AddExpenseForm(props) {
         <input
           ref={titleRef}
           onChange={onTitleChange}
-          onBlur={() => onLostFocus("title")}
+          onBlur={onLostFocus}
           placeholder="Title"
           minLength={5}
           required
         />
         <p className="error">{lengthErrorMessage}</p>
         <input
-          type="text"
+          type="number"
           ref={amountRef}
           onChange={onAmountChange}
-          onBlur={() => onLostFocus("amount")}
           placeholder={`Amount (in ${fromCurrency})`}
           step="any"
           min="0"

@@ -21,7 +21,6 @@ function App() {
   const [convertedTotal, setConvertedTotal] = useState("");
 
   const [lengthErrorMessage, setLengthErrorMessage] = useState(null);
-  const [amountErrorMessage, setAmountErrorMessage] = useState(null);
 
   const [currencyOptions, setCurrencyOptions] = useState([]);
   const [fromCurrency, setFromCurrency] = useState("PLN");
@@ -56,10 +55,8 @@ function App() {
       : setToCurrency(event.target.value);
   };
 
-  const onLostFocus = (field) => {
-    field === "title"
-      ? setLengthErrorMessage(null)
-      : setAmountErrorMessage(null);
+  const onLostFocus = () => {
+    setLengthErrorMessage(null);
   };
 
   // Switch between currencies on click
@@ -192,15 +189,6 @@ function App() {
     );
   };
 
-  // Validate amount input field and show error
-  const onAmountChange = (event) => {
-    const amountIsString = isNaN(event.target.value);
-
-    setAmountErrorMessage(
-      !amountIsString ? null : "Amount should be numbers only"
-    );
-  };
-
   return (
     <>
       <div className="main">
@@ -221,10 +209,8 @@ function App() {
             toAmount={convertedFromAmount}
             convertedAmount={convertedFromAmount}
             onTitleChange={onTitleChange}
-            onAmountChange={onAmountChange}
             onLostFocus={onLostFocus}
             lengthErrorMessage={lengthErrorMessage}
-            amountErrorMessage={amountErrorMessage}
           />
           <DisplayExpenses
             allExpenses={allExpenses}
