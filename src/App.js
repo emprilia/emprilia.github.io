@@ -177,7 +177,6 @@ function App() {
   // Validate title length and show error
   const onTitleChange = (event) => {
     const value = event.target.value;
-    console.log(value.trim().length);
 
     setLengthErrorMessage(
       value.trim().length >= 5
