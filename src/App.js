@@ -221,7 +221,6 @@ function App() {
             onEditFormSubmit={onEditFormSubmit}
             onCancelClick={onCancelClick}
             onDeleteClick={onDeleteClick}
-            lengthErrorMessage={lengthErrorMessage}
           />
         </div>
       </div>
