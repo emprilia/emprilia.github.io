@@ -55,11 +55,6 @@ function App() {
       : setToCurrency(event.target.value);
   };
 
-  // Clear error message on blur
-  const onLostFocus = () => {
-    setLengthErrorMessage(null);
-  };
-
   // Switch between currencies on click
   const handleSwapCurrencies = () => {
     const oldFromCurrency = fromCurrency;
@@ -188,6 +183,11 @@ function App() {
         ? null
         : "Title should have at least 5 characters"
     );
+  };
+
+  // Clear error message on blur
+  const onLostFocus = () => {
+    setLengthErrorMessage(null);
   };
 
   return (
