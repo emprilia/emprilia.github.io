@@ -69,8 +69,8 @@ function App() {
     event.preventDefault();
 
     const newExpense = {
-      amount: Number(amountRef.current.value).toFixed(2),
       title: titleRef.current.value.trim().replace(/\s\s+/g, " "),
+      amount: Number(amountRef.current.value).toFixed(2),
       convertedAmount: Number(amountRef.current.value * exchangeRate).toFixed(
         2
       ),
