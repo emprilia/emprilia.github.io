@@ -21,7 +21,7 @@ export default function DisplayExpenses(props) {
 
   return (
     <div className="display-expenses-wrap">
-      {!allExpenses ? (
+      {!allExpenses.length ? (
         <p className="empty-table-text">
           Add your first expense above. Let's get started!
         </p>

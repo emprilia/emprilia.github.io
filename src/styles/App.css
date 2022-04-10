@@ -349,7 +349,7 @@ td {
 
 /* OTHER */
 
-.length-error, .empty-table-text {
+.error, .empty-table-text {
   letter-spacing: 2px;
   font-weight: 700;
   padding: 0;
@@ -358,7 +358,7 @@ td {
   text-align: left;
 }
 
-.length-error {
+.error {
   color: #ff0000;
 }
 

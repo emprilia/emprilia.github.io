@@ -24,7 +24,7 @@ export default function AddExpenseForm(props) {
           minLength={5}
           required
         />
-        <p className="length-error">{lengthErrorMessage}</p>
+        <p className="error">{lengthErrorMessage}</p>
         <input
           type="text"
           ref={amountRef}
@@ -35,7 +35,7 @@ export default function AddExpenseForm(props) {
           min="0"
           required
         />
-        <p className="length-error">{amountErrorMessage}</p>
+        <p className="error">{amountErrorMessage}</p>
       </div>
       <button type="submit" className="add-expense-button">
         <p>Add expense</p>
