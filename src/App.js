@@ -20,7 +20,6 @@ function App() {
   const [total, setTotal] = useState("");
   const [convertedTotal, setConvertedTotal] = useState("");
 
-  const [disabledButton, setDisabledButton] = useState(true);
   const [lengthErrorMessage, setLengthErrorMessage] = useState(null);
   const [amountErrorMessage, setAmountErrorMessage] = useState(null);
 
@@ -191,12 +190,6 @@ function App() {
         ? null
         : "Title should have at least 5 characters"
     );
-    setDisabledButton(
-      value.trim().replace(/\s\s+/g, " ").length >= 5 &&
-        amountRef.current.length
-        ? false
-        : true
-    );
   };
 
   // Validate amount input field and show error
@@ -206,9 +199,6 @@ function App() {
     setAmountErrorMessage(
       !amountIsString ? null : "Amount should be numbers only"
     );
-    // if (titleRef.current.value === "") {
-    //   setDisabledButton(true);
-    // }
   };
 
   return (
@@ -235,7 +225,6 @@ function App() {
             onLostFocus={onLostFocus}
             lengthErrorMessage={lengthErrorMessage}
             amountErrorMessage={amountErrorMessage}
-            disabledButton={disabledButton}
           />
           <DisplayExpenses
             allExpenses={allExpenses}

@@ -19,7 +19,6 @@ export default function AddExpense(props) {
     onLostFocus,
     lengthErrorMessage,
     amountErrorMessage,
-    disabledButton,
   } = props;
 
   return (
@@ -52,7 +51,6 @@ export default function AddExpense(props) {
         lengthErrorMessage={lengthErrorMessage}
         amountErrorMessage={amountErrorMessage}
         fromCurrency={fromCurrency}
-        disabledButton={disabledButton}
       />
     </div>
   );

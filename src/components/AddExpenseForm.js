@@ -11,7 +11,6 @@ export default function AddExpenseForm(props) {
     onLostFocus,
     lengthErrorMessage,
     amountErrorMessage,
-    disabledButton,
   } = props;
 
   return (
@@ -38,11 +37,7 @@ export default function AddExpenseForm(props) {
         />
         <p className="length-error">{amountErrorMessage}</p>
       </div>
-      <button
-        type="submit"
-        className="add-expense-button"
-        disabled={disabledButton}
-      >
+      <button type="submit" className="add-expense-button">
         <p>Add expense</p>
       </button>
     </form>
