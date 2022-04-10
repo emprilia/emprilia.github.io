@@ -14,6 +14,9 @@ function App() {
 
   const [allExpenses, setAllExpenses] = useState(expenses);
   const [allAmounts, setAllAmounts] = useState([]);
+  const [editFormData, setEditFormData] = useState({});
+  const [editExpenseId, setEditExpenseId] = useState(null);
+
   const [total, setTotal] = useState("");
   const [convertedTotal, setConvertedTotal] = useState("");
 
@@ -26,9 +29,6 @@ function App() {
 
   const fromAmount = 1;
   const convertedFromAmount = (fromAmount * exchangeRate).toFixed(2);
-
-  const [editFormData, setEditFormData] = useState({});
-  const [editExpenseId, setEditExpenseId] = useState(null);
 
   // Load currency options
   useEffect(() => {
@@ -126,7 +126,7 @@ function App() {
     setEditFormData(formValues);
   };
 
-  // Get input data from the edit form
+  // Find the edited object, switch object's values to new ones
   const onEditFormChange = (event) => {
     const fieldName = event.target.getAttribute("name");
     const fieldValue = event.target.value;
