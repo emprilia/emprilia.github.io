@@ -55,6 +55,7 @@ function App() {
       : setToCurrency(event.target.value);
   };
 
+  // Clear error message on blur
   const onLostFocus = () => {
     setLengthErrorMessage(null);
   };
