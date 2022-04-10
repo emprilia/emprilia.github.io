@@ -20,7 +20,9 @@ function App() {
   const [total, setTotal] = useState("");
   const [convertedTotal, setConvertedTotal] = useState("");
 
+  const [disabledButton, setDisabledButton] = useState(true);
   const [lengthErrorMessage, setLengthErrorMessage] = useState(null);
+  const [amountErrorMessage, setAmountErrorMessage] = useState(null);
 
   const [currencyOptions, setCurrencyOptions] = useState([]);
   const [fromCurrency, setFromCurrency] = useState("PLN");
@@ -53,6 +55,12 @@ function App() {
     currencyChanged === "from"
       ? setFromCurrency(event.target.value)
       : setToCurrency(event.target.value);
+  };
+
+  const onLostFocus = (field) => {
+    field === "title"
+      ? setLengthErrorMessage(null)
+      : setAmountErrorMessage(null);
   };
 
   // Switch between currencies on click
@@ -128,6 +136,12 @@ function App() {
     const newFormData = { ...editFormData };
     newFormData[fieldName] = fieldValue;
 
+    setLengthErrorMessage(
+      fieldValue.trim().length >= 5
+        ? null
+        : "Title should have at least 5 characters"
+    );
+
     setEditFormData(newFormData);
   };
 
@@ -173,10 +187,28 @@ function App() {
     const value = event.target.value;
 
     setLengthErrorMessage(
-      value.trim().length >= 5
+      value.trim().replace(/\s\s+/g, " ").length >= 5
         ? null
         : "Title should have at least 5 characters"
     );
+    setDisabledButton(
+      value.trim().replace(/\s\s+/g, " ").length >= 5 &&
+        amountRef.current.length
+        ? false
+        : true
+    );
+  };
+
+  // Validate amount input field and show error
+  const onAmountChange = (event) => {
+    const amountIsString = isNaN(event.target.value);
+
+    setAmountErrorMessage(
+      !amountIsString ? null : "Amount should be numbers only"
+    );
+    // if (titleRef.current.value === "") {
+    //   setDisabledButton(true);
+    // }
   };
 
   return (
@@ -199,7 +231,11 @@ function App() {
             toAmount={convertedFromAmount}
             convertedAmount={convertedFromAmount}
             onTitleChange={onTitleChange}
+            onAmountChange={onAmountChange}
+            onLostFocus={onLostFocus}
             lengthErrorMessage={lengthErrorMessage}
+            amountErrorMessage={amountErrorMessage}
+            disabledButton={disabledButton}
           />
           <DisplayExpenses
             allExpenses={allExpenses}

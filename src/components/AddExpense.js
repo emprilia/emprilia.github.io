@@ -8,6 +8,7 @@ export default function AddExpense(props) {
     amountRef,
     titleRef,
     onTitleChange,
+    onAmountChange,
     currencyOptions,
     fromCurrency,
     toCurrency,
@@ -15,7 +16,10 @@ export default function AddExpense(props) {
     toAmount,
     onChangeCurrency,
     handleSwapCurrencies,
+    onLostFocus,
     lengthErrorMessage,
+    amountErrorMessage,
+    disabledButton,
   } = props;
 
   return (
@@ -43,8 +47,12 @@ export default function AddExpense(props) {
         titleRef={titleRef}
         amountRef={amountRef}
         onTitleChange={onTitleChange}
+        onAmountChange={onAmountChange}
+        onLostFocus={onLostFocus}
         lengthErrorMessage={lengthErrorMessage}
+        amountErrorMessage={amountErrorMessage}
         fromCurrency={fromCurrency}
+        disabledButton={disabledButton}
       />
     </div>
   );

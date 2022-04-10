@@ -279,12 +279,21 @@ td {
 .add-expense-button:hover p,
 .swap-currencies:hover p
 {
-  background-color: #fff;
+  background-color: transparent;
   color: #3590F8;
 }
 
 .add-expense-button {
   width: 36%;
+}
+
+.add-expense-button:disabled {
+  background-color: grey;
+  cursor:auto;
+}
+
+.add-expense-button:disabled p {
+  color: #fff;
 }
 
 .swap-currencies {
