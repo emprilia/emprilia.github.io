@@ -27,6 +27,9 @@ function App() {
   const fromAmount = 1;
   const convertedFromAmount = (fromAmount * exchangeRate).toFixed(2);
 
+  const [editFormData, setEditFormData] = useState({});
+  const [editExpenseId, setEditExpenseId] = useState(null);
+
   // Load currency options
   useEffect(() => {
     fetch(`${BASE_URL}/latest/EUR`)
@@ -77,16 +80,16 @@ function App() {
     setAllExpenses([...allExpenses, newExpense]);
   };
 
-  // Convert added expenses to chosen currency
+  // Convert added/edited expenses to chosen currency
   useEffect(() => {
-    const test = (allExpenses) =>
+    const convertedAmount = (allExpenses) =>
       allExpenses.map((expense) => ({
         ...expense,
         convertedAmount: Number(expense.amount * exchangeRate).toFixed(2),
       }));
 
-    setAllExpenses(test);
-  }, [exchangeRate]);
+    setAllExpenses(convertedAmount);
+  }, [exchangeRate, allExpenses]);
 
   // Create an array of amounts, add them together to get a total
   React.useEffect(() => {
@@ -106,8 +109,60 @@ function App() {
     setTotal(sumTotal.toFixed(2));
   }, [allExpenses, allAmounts, exchangeRate]);
 
+  // Get ID and the data of the field to edit, fill out the inputs
+  const onEditClick = (event, expense) => {
+    event.preventDefault();
+    setEditExpenseId(expense.id);
+
+    const formValues = {
+      title: expense.title,
+      amount: expense.amount,
+      convertedAmount: expense.convertedAmount,
+    };
+
+    setEditFormData(formValues);
+  };
+
+  // Get input data from the edit form
+  const onEditFormChange = (event) => {
+    const fieldName = event.target.getAttribute("name");
+    const fieldValue = event.target.value;
+
+    const newFormData = { ...editFormData };
+    newFormData[fieldName] = fieldValue;
+
+    setEditFormData(newFormData);
+  };
+
+  // Update allExpenses with input data
+  const onEditFormSubmit = (event) => {
+    event.preventDefault();
+
+    const editedExpense = {
+      id: editExpenseId,
+      title: editFormData.title,
+      amount: editFormData.amount,
+    };
+
+    const newExpenses = [...allExpenses];
+
+    const index = newExpenses.findIndex(
+      (expense) => expense.id === editExpenseId
+    );
+
+    newExpenses[index] = editedExpense;
+
+    setAllExpenses(newExpenses);
+    setEditExpenseId(null);
+  };
+
+  // Cancel editing
+  const onCancelClick = () => {
+    setEditExpenseId(null);
+  };
+
   // Delete rows
-  const deleteTableRows = (expenseId) => {
+  const onDeleteClick = (expenseId) => {
     const rows = [...allExpenses];
     const index = rows.findIndex((expense) => expense.id === expenseId);
 
@@ -145,6 +200,7 @@ function App() {
             convertedAmount={convertedFromAmount}
             onTitleChange={onTitleChange}
             lengthErrorMessage={lengthErrorMessage}
+            onEditFormSubmit={onEditFormSubmit}
           />
           <DisplayExpenses
             allExpenses={allExpenses}
@@ -153,7 +209,13 @@ function App() {
             exchangeRate={exchangeRate}
             total={total}
             convertedTotal={convertedTotal}
-            deleteTableRows={deleteTableRows}
+            onEditClick={onEditClick}
+            editExpenseId={editExpenseId}
+            editFormData={editFormData}
+            onEditFormChange={onEditFormChange}
+            onEditFormSubmit={onEditFormSubmit}
+            onCancelClick={onCancelClick}
+            onDeleteClick={onDeleteClick}
           />
         </div>
       </div>

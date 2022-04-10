@@ -112,17 +112,17 @@ select {
   margin-bottom: 20px;
 }
 
-.add-expense-form input {
+.add-expense-form input, .edit-input {
   background-color: rgba(132, 150, 230, 0.151);
   border-radius: 10px;
   padding: 20px;
-  margin-bottom: 5px;
   width: 100%;
   outline: none;
   border-width: 0;
   font-size: 15px;
   letter-spacing: 2px;
   color: #3590f8;
+  text-transform: uppercase;
 }
 
 .add-expense-form input::placeholder {
@@ -133,29 +133,25 @@ select {
   letter-spacing: 2px;
 }
 
-.add-expense-form input:focus {
+.add-expense-form input:focus, .edit-input:focus {
   outline: none;
   background-color: rgba(95, 210, 230, 0.336);
-  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 15px 5px rgba(0, 0, 0, 0.39);
+
 }
 
 .add-expense-form input:focus::placeholder {
   color: transparent;
 }
 
-.add-expense-form input:focus:invalid {
+.add-expense-form input:focus:invalid, .edit-input:focus:invalid {
   border: 2px solid red;
-  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* TABLE STYLE */
 
 .display-expenses-wrap {
   margin: 0 30px;
-}
-
-table {
-  table-layout: auto;
 }
 
 .display-expenses-table-wrap {
@@ -188,18 +184,21 @@ th {
   text-transform: uppercase;
 }
 
-.expense-title {
+.expense-title, .edit-td {
   text-align: left;
   text-transform: uppercase;
   color: #3590f8;
   padding: 0;
   margin: 0;
   line-height: 1em;
-  width: 30%;
+  white-space: pre-wrap;
+word-break:break-word;
+  width: 50%;
 }
 
 tr {
   transition: 0.3s;
+  
 }
 
 tbody tr:hover {
@@ -215,6 +214,7 @@ tbody {
   padding: 10px;
   background-color: white;
   transition: 0.6s;
+  
 }
 
 td {
@@ -225,14 +225,13 @@ td {
   font-weight: 500;
   font-size: 20px;
   color: rgb(0, 166, 255);
-  line-height: 40px;
 }
 
 /* BUTTONS */
 
 .add-expense-button,
-.delete-expenses-button,
-.swap-currencies {
+.swap-currencies
+{
   background-color: #3590f8;
   border: none;
   border-radius: 5px;
@@ -241,8 +240,8 @@ td {
 }
 
 .add-expense-button p,
-.delete-expenses-button p,
-.swap-currencies p {
+.swap-currencies p
+{
   margin: 10px;
   color: #fff;
   text-align: center;
@@ -255,16 +254,16 @@ td {
 }
 
 .add-expense-button:hover,
-.delete-expenses-button:hover,
-.swap-currencies:hover {
+.swap-currencies:hover
+{
   background-color: transparent;
   color: #fff;
 }
 
 .add-expense-button:hover p,
-.delete-expenses-button:hover p,
-.swap-currencies:hover p {
-  background-color: transparent;
+.swap-currencies:hover p
+{
+  background-color: rgba(132, 150, 230, 0.151);
   color: #3590F8;
 }
 
@@ -277,17 +276,26 @@ td {
   width: 100px;
 }
 
-.delete-expenses-button {
-  width: 50%;
-  margin: 0 auto;
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.delete-expenses-button:hover {
-  transform: scale(1.1);
+.delete-expenses-button, .edit-expenses-button, .save-edit-button,
+.cancel-edit-button {
+  margin: 5px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 
-.delete-expenses-button p {
-  margin: 4px auto;
+.edit-expenses-button img, .delete-expenses-button img, .save-edit-button img, .cancel-edit-button img {
+  width: 30px;
+}
+
+.delete-expenses-button:hover, .edit-expenses-button:hover, .save-edit-button:hover, .cancel-edit-button:hover {
+  transform: scale(1.3);
 }
 
 /* TOTAL SUM STYLE */

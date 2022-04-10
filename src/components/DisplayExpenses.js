@@ -10,7 +10,13 @@ export default function DisplayExpenses(props) {
     exchangeRate,
     total,
     convertedTotal,
-    deleteTableRows,
+    onEditClick,
+    editExpenseId,
+    onEditFormChange,
+    editFormData,
+    onEditFormSubmit,
+    onCancelClick,
+    onDeleteClick,
   } = props;
 
   return (
@@ -24,8 +30,14 @@ export default function DisplayExpenses(props) {
           allExpenses={allExpenses}
           fromCurrency={fromCurrency}
           toCurrency={toCurrency}
-          deleteTableRows={deleteTableRows}
           exchangeRate={exchangeRate}
+          onEditClick={onEditClick}
+          editExpenseId={editExpenseId}
+          onEditFormChange={onEditFormChange}
+          onEditFormSubmit={onEditFormSubmit}
+          onCancelClick={onCancelClick}
+          onDeleteClick={onDeleteClick}
+          editFormData={editFormData}
         />
       )}
       <Summary
