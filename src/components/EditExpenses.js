@@ -3,7 +3,7 @@ import saveIcon from "./save-icon.ico";
 import cancelIcon from "./cancel-icon.ico";
 
 export default function EditExpenses(props) {
-  const { expense, onEditFormChange, editFormData, onCancelClick } = props;
+  const { expense, onEditFormChange, onCancelClick } = props;
   return (
     <tr>
       <td className="edit-td">
@@ -12,7 +12,7 @@ export default function EditExpenses(props) {
           type="text"
           required
           name="title"
-          defaultValue={editFormData.title}
+          defaultValue={expense.title}
           onChange={onEditFormChange}
           minLength={5}
         />
@@ -25,7 +25,7 @@ export default function EditExpenses(props) {
           name="amount"
           step="any"
           min="0"
-          defaultValue={editFormData.amount}
+          defaultValue={expense.amount}
           onChange={onEditFormChange}
         />
       </td>

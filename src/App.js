@@ -211,7 +211,6 @@ function App() {
             convertedTotal={convertedTotal}
             onEditClick={onEditClick}
             editExpenseId={editExpenseId}
-            editFormData={editFormData}
             onEditFormChange={onEditFormChange}
             onEditFormSubmit={onEditFormSubmit}
             onCancelClick={onCancelClick}

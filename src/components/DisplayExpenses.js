@@ -37,7 +37,6 @@ export default function DisplayExpenses(props) {
           onEditFormSubmit={onEditFormSubmit}
           onCancelClick={onCancelClick}
           onDeleteClick={onDeleteClick}
-          editFormData={editFormData}
         />
       )}
       <Summary
