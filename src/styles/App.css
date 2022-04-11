@@ -15,9 +15,21 @@
 }
 
 @media (max-width: 1300px) {
-
+  
   .expenses-list-wrap {
     width: 80%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 550px) {
+
+  .main {
+    margin: 0px auto;
+  }
+
+  .expenses-list-wrap {
+    width: 100%;
     margin: 0 auto;
   }
 }
