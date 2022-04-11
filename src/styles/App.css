@@ -14,8 +14,8 @@
   box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.229);
 }
 
-@media (max-width: 1300px) {
-  
+@media (max-width: 1400px) {
+
   .expenses-list-wrap {
     width: 80%;
     margin: 0 auto;
