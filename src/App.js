@@ -128,12 +128,6 @@ function App() {
     const newFormData = { ...editFormData };
     newFormData[fieldName] = fieldValue;
 
-    setLengthErrorMessage(
-      fieldValue.trim().length >= 5
-        ? null
-        : "Title should have at least 5 characters"
-    );
-
     setEditFormData(newFormData);
   };
 
