@@ -15,7 +15,7 @@ export default function ReadOnlyExpenses(props) {
             className="edit-expenses-button"
             onClick={(event) => onEditClick(event, expense)}
           >
-            <img src={editIcon} alt="edit-row" />
+            <img src={editIcon} alt="edit-field" />
           </button>
           <button
             className="delete-expenses-button"
