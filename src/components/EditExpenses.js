@@ -33,10 +33,10 @@ export default function EditExpenses(props) {
       <td className="table-buttons">
         <div className="action-buttons">
           <button className="save-edit-button" type="submit">
-            <img src={saveIcon} alt="edit-field" />
+            <img src={saveIcon} alt="save-field" />
           </button>
           <button className="cancel-edit-button" onClick={onCancelClick}>
-            <img src={cancelIcon} alt="edit-field" />
+            <img src={cancelIcon} alt="cancel-field" />
           </button>
         </div>
       </td>
