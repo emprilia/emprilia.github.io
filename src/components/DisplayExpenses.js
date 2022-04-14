@@ -16,7 +16,6 @@ export default function DisplayExpenses(props) {
     onEditFormSubmit,
     onCancelClick,
     onDeleteClick,
-    lengthErrorMessage,
   } = props;
 
   return (
@@ -37,7 +36,6 @@ export default function DisplayExpenses(props) {
           onEditFormSubmit={onEditFormSubmit}
           onCancelClick={onCancelClick}
           onDeleteClick={onDeleteClick}
-          lengthErrorMessage={lengthErrorMessage}
         />
       )}
       <Summary
